@@ -1,0 +1,24 @@
+/**
+ * @filename:BRailwayTallyResponseServiceImpl 2019年08月12日
+ * @project depot-manager  V1.0
+ * Copyright(c) 2018 ZhangPeng Co. Ltd.
+ * All right reserved.
+ */
+package cn.samples.depot.web.cz.service.impl;
+
+import cn.samples.depot.web.cz.mapper.BRailwayTallyResponseMapper;
+import cn.samples.depot.web.cz.service.BRailwayTallyResponseService;
+import cn.samples.depot.web.entity.BRailwayTallyResponse;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * @Description: 铁路进口理货报文回执——SERVICEIMPL
+ * @Author: ZhangPeng
+ * @CreateDate: 2019年08月12日
+ * @Version: V1.0
+ */
+@Service
+public class BRailwayTallyResponseServiceImpl extends ServiceImpl<BRailwayTallyResponseMapper, BRailwayTallyResponse> implements BRailwayTallyResponseService {
+
+}

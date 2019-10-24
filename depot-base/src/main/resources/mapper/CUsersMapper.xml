@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.CUsersMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.CUsers">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>    <!-- 用户登录名 -->
+        <result column="real_name" jdbcType="VARCHAR" property="realName"/>    <!-- 真实姓名 -->
+        <result column="enterprise_code" jdbcType="VARCHAR" property="enterpriseCode"/>    <!-- 企业编码 -->
+        <result column="password" jdbcType="VARCHAR" property="password"/>    <!-- 登录密码 -->
+        <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone"/>    <!-- 联系手机号 -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, user_name, real_name, enterprise_code, password, contact_phone, enable, create_time
+	</sql>
+</mapper>

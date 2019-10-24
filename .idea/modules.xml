@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/depot-base/depot-base.iml" filepath="$PROJECT_DIR$/depot-base/depot-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/depot-common/depot-common.iml" filepath="$PROJECT_DIR$/depot-common/depot-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/depot-manager.iml" filepath="$PROJECT_DIR$/depot-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/depot-web/depot-web.iml" filepath="$PROJECT_DIR$/depot-web/depot-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/depot-web-cz/depot-web-cz.iml" filepath="$PROJECT_DIR$/depot-web-cz/depot-web-cz.iml" />
+    </modules>
+  </component>
+</project>

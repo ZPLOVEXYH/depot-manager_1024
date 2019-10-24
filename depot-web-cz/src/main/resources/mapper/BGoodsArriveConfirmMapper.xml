@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BGoodsArriveConfirmMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BGoodsArriveConfirm">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 审核日志id -->
+        <result column="container_no" jdbcType="VARCHAR" property="containerNo"/>    <!-- 集装箱号 -->
+        <result column="station_code" jdbcType="VARCHAR" property="stationCode"/>    <!-- 场站编码 -->
+        <result column="vehicle_number" jdbcType="VARCHAR" property="vehicleNumber"/>    <!-- 车牌号 -->
+        <result column="enterprises_id" jdbcType="VARCHAR" property="enterprisesId"/>    <!-- 企业编码 -->
+        <result column="enterprises_name" jdbcType="VARCHAR" property="enterprisesName"/>    <!-- 企业名称 -->
+        <result column="confirm_type" jdbcType="VARCHAR" property="confirmType"/>    <!-- 确认类型 -->
+        <result column="status" jdbcType="VARCHAR" property="status"/>    <!-- 货到确认状态 -->
+        <result column="entry_time" jdbcType="BIGINT" property="entryTime"/>    <!-- 货到确认时间 -->
+        <result column="confirm_user" jdbcType="VARCHAR" property="confirmUser"/>    <!-- 确认人 -->
+        <result column="confirm_time" jdbcType="BIGINT" property="confirmTime"/>    <!-- 确认时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, container_no, station_code, vehicle_number, enterprises_id, enterprises_name, confirm_type, status, entry_time, confirm_user, confirm_time, create_time
+	</sql>
+</mapper>

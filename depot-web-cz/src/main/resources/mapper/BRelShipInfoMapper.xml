@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRelShipInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRelShipInfo">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="rel_report_head_id" jdbcType="VARCHAR" property="relReportHeadId"/>    <!-- 表头ID -->
+        <result column="ship_id" jdbcType="VARCHAR" property="shipId"/>    <!-- 运输工具代码 -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="iEFlag"/>    <!-- 进出口标记 -->
+        <result column="ship_name_en" jdbcType="VARCHAR" property="shipNameEn"/>    <!-- 运输工具名称 -->
+        <result column="voyage_no" jdbcType="VARCHAR" property="voyageNo"/>    <!-- 航线班次 -->
+        <result column="line_flag" jdbcType="VARCHAR" property="lineFlag"/>    <!-- 航线标记 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, rel_report_head_id, ship_id, i_e_flag, ship_name_en, voyage_no, line_flag, create_time
+	</sql>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BMoveBoxConfirmMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BMoveBoxConfirm">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 审核日志id -->
+        <result column="container_no" jdbcType="VARCHAR" property="containerNo"/>    <!-- 集装箱号 -->
+        <result column="conta_model_name" jdbcType="VARCHAR" property="contaModelName"/>    <!-- 集装箱尺寸 -->
+        <result column="old_station_area_code" jdbcType="VARCHAR" property="oldStationAreaCode"/>    <!-- 原堆区 -->
+        <result column="old_station_area_position_code" jdbcType="VARCHAR"
+                property="oldStationAreaPositionCode"/>    <!-- 原堆位 -->
+        <result column="new_station_area_code" jdbcType="VARCHAR" property="newStationAreaCode"/>    <!-- 移动后堆区 -->
+        <result column="new_station_area_position_code" jdbcType="VARCHAR"
+                property="newStationAreaPositionCode"/>    <!-- 移动后堆位 -->
+        <result column="op_user" jdbcType="VARCHAR" property="opUser"/>    <!-- 操作人 -->
+        <result column="op_time" jdbcType="BIGINT" property="opTime"/>    <!-- 操作时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, container_no, conta_model_name, old_station_area_code, old_station_area_position_code, new_station_area_code, new_station_area_position_code, op_user, op_time, create_time
+	</sql>
+</mapper>

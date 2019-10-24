@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BShipmentContainerMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BShipmentContainer">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 集装箱信息id -->
+        <result column="container_no" jdbcType="VARCHAR" property="containerNo"/>    <!-- 集装箱号 -->
+        <result column="shipment_plan_id" jdbcType="VARCHAR" property="shipmentPlanId"/>    <!-- 发运计划id -->
+        <result column="seal_no" jdbcType="VARCHAR" property="sealNo"/>    <!-- 铅封号 -->
+        <result column="conta_model_name" jdbcType="VARCHAR" property="contaModelName"/>    <!-- 集装箱尺寸名称 -->
+        <result column="piece_num" jdbcType="INTEGER" property="pieceNum"/>    <!-- 件数 -->
+        <result column="weight" jdbcType="DECIMAL" property="weight"/>    <!-- 重量（KG) -->
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>    <!-- 备注 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, container_no, shipment_plan_id, seal_no, conta_model_name, piece_num, weight,status, create_time, remark
+	</sql>
+</mapper>

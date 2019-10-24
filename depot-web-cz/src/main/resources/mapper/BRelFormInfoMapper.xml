@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRelFormInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRelFormInfo">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="rel_report_head_id" jdbcType="VARCHAR" property="relReportHeadId"/>    <!-- 表头ID -->
+        <result column="bill_no" jdbcType="VARCHAR" property="billNo"/>    <!-- 提单号 -->
+        <result column="form_id" jdbcType="VARCHAR" property="formId"/>    <!-- 单证ID -->
+        <result column="form_type" jdbcType="VARCHAR" property="formType"/>    <!-- 单证类型 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, rel_report_head_id, bill_no, form_id, form_type, create_time
+	</sql>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRailwayTallyBillInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRailwayTallyBillInfo">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="railway_tally_report_head_id" jdbcType="VARCHAR"
+                property="railwayTallyReportHeadId"/>    <!-- 表头ID -->
+        <result column="bill_no" jdbcType="VARCHAR" property="billNo"/>    <!-- 提单号 -->
+        <result column="carriage_no" jdbcType="VARCHAR" property="carriageNo"/>    <!-- 车皮号 -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!-- 集装箱号 -->
+        <result column="conta_type" jdbcType="VARCHAR" property="contaType"/>    <!-- 箱型 -->
+        <result column="audit_status" jdbcType="VARCHAR" property="auditStatus"/>    <!--  -->
+        <result column="seal_no" jdbcType="VARCHAR" property="sealNo"/>    <!-- 封志号 -->
+        <result column="pack_no" jdbcType="INTEGER" property="packNo"/>    <!-- 件数 -->
+        <result column="gross_wt" jdbcType="DECIMAL" property="grossWt"/>    <!-- 重量 -->
+        <result column="notes" jdbcType="VARCHAR" property="notes"/>    <!-- 备注 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, railway_tally_report_head_id, bill_no, carriage_no, conta_no, conta_type, audit_status, seal_no, pack_no, gross_wt, notes, create_time
+	</sql>
+</mapper>

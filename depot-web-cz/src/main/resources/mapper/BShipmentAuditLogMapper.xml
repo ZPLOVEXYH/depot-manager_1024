@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BShipmentAuditLogMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BShipmentAuditLog">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 审核日志id -->
+        <result column="shipment_plan_id" jdbcType="VARCHAR" property="shipmentPlanId"/>    <!-- 发运计划id -->
+        <result column="auditor" jdbcType="VARCHAR" property="auditor"/>    <!-- 审核人 -->
+        <result column="audit_remark" jdbcType="VARCHAR" property="auditRemark"/>    <!-- 审核说明 -->
+        <result column="audit_time" jdbcType="BIGINT" property="auditTime"/>    <!-- 审核时间 -->
+        <result column="audit_result" jdbcType="VARCHAR"
+                property="auditResult"/>    <!-- 审核状态（00：待提交、10：待审核、11：审核驳回、12：审核通过、99：作废） -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, shipment_plan_id, auditor, audit_remark, audit_time, audit_result
+	</sql>
+</mapper>

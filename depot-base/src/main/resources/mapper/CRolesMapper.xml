@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.CRolesMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.CRoles">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="code" jdbcType="VARCHAR" property="code"/>    <!-- 角色编码 -->
+        <result column="name" jdbcType="VARCHAR" property="name"/>    <!-- 角色名称 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>    <!-- 备注 -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, code, name, remark, enable, create_time
+	</sql>
+</mapper>

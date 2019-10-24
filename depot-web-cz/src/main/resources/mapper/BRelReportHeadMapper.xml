@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRelReportHeadMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRelReportHead">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 主键 -->
+        <result column="message_id" jdbcType="VARCHAR" property="messageId"/>    <!-- 报文编码 -->
+        <result column="message_type" jdbcType="VARCHAR"
+                property="messageType"/>    <!-- 报文类型(放行WLJK_REL,装车WLJK_TLA) -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="iEFlag"/>    <!-- 进出口标记（I 进口,E 出口）-->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 海关代码 -->
+        <result column="station_code" jdbcType="VARCHAR" property="stationCode"/>    <!-- 场站编码(接收者) -->
+        <result column="send_id" jdbcType="VARCHAR" property="sendId"/>    <!-- 发送者 -->
+        <result column="send_time" jdbcType="BIGINT" property="sendTime"/>    <!-- 发送时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <!-- 放行指令列表返回 -->
+    <resultMap id="pageResultMap" type="cn.samples.depot.web.bean.report.BRelReportHeadRsp">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 主键 -->
+        <result column="message_id" jdbcType="VARCHAR" property="messageId"/>    <!-- 放行报文编号 -->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 场站编码 -->
+        <result column="message_type" jdbcType="VARCHAR"
+                property="messageType"/>    <!-- 报文类型(放行WLJK_REL,装车WLJK_TLA) -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="ieFlag"/>    <!-- 进出口标记（I 进口,E 出口）-->
+        <result column="station_code" jdbcType="VARCHAR" property="stationCode"/>    <!-- 场站编码(接收者) -->
+        <result column="bill_no" jdbcType="VARCHAR" property="billNo"/>    <!-- 提运单号 -->
+        <result column="h2000_arrive_no" jdbcType="VARCHAR" property="h2000ArriveNo"/>    <!-- H2000运抵编号 -->
+        <result column="rel_type" jdbcType="VARCHAR" property="relType"/>    <!-- 提单放行方式 -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!-- 集装箱号 -->
+        <result column="contaRelType" jdbcType="VARCHAR" property="contaRelType"/>    <!-- 集装箱放行方式 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+        <result column="rel_time" jdbcType="BIGINT" property="relTime"/>    <!-- 放行时间 -->
+        <result column="ship_name_en" jdbcType="VARCHAR" property="shipNameEn"/>    <!-- 运输工具名称 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, message_id, message_type, customs_code, station_code, send_id, send_time, create_time, i_e_flag
+	</sql>
+
+    <!-- 理货报告进出口列表多表关联分页查询 -->
+    <select id="selectRelReportListPage" resultMap="pageResultMap">
+        select
+        a.id,a.message_id,a.customs_code,a.message_type,a.i_e_flag,a.station_code,a.create_time,
+        b.bill_no,b.h2000_arrive_no,b.rel_type,b.rel_time,
+        c.conta_no,c.rel_type as contaRelType,
+        d.ship_name_en
+        from b_rel_report_head a
+        left join b_rel_bill_info b on a.id = b.rel_report_head_id
+        left join b_rel_conta_info c on a.id = c.rel_head_id
+        left join b_rel_ship_info d on a.id = d.rel_report_head_id
+        <where>
+            <!-- 海关代码 -->
+            <if test="query.customsCode != null">
+                and a.customs_code = #{query.customsCode}
+            </if>
+            <!-- 报文类型(放行WLJK_REL,装车WLJK_TLA) -->
+            <if test="query.messageType != null">
+                and a.message_type = #{query.messageType}
+            </if>
+            <!-- 进出口标记（I 进口,E 出口） -->
+            <if test="query.ieFlag != null">
+                and a.i_e_flag = #{query.ieFlag}
+            </if>
+            <!-- TODO 运输工具名称 -->
+            <if test="query.shipNameEn != null">
+                and d.ship_name_en like ${query.shipNameEn}
+            </if>
+            <!-- 提运单号 -->
+            <if test="query.billNo != null">
+                and b.bill_no like ${query.billNo}
+            </if>
+            <!-- 集装箱号 -->
+            <if test="query.contaNo != null">
+                and c.conta_no like ${query.contaNo}
+            </if>
+            <!-- 创建开始时间不为空，但是创建结束时间为空 -->
+            <if test="query.startCreateTime != null">
+                and a.create_time &gt;= #{startCreateTime}
+            </if>
+            <!-- 创建结束时间不为空，但是创建开始时间为空 -->
+            <if test="query.endCreateTime != null">
+                and a.create_time &lt;= #{endCreateTime}
+            </if>
+            <!-- 创建开始时间和创建结束时间都不能为空 -->
+            <!--<if test="query.startCreateTime != null and query.endCreateTime != null">
+                a.create_time between #{startCreateTime} and #{endCreateTime}
+            </if>-->
+        </where>
+        order by a.create_time desc
+    </select>
+</mapper>

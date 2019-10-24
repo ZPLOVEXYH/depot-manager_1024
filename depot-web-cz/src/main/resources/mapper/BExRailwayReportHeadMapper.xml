@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BExRailwayReportHeadMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BExRailwayReportHead">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 主键 -->
+        <result column="message_id" jdbcType="VARCHAR" property="messageId"/>    <!-- 报文编号 -->
+        <result column="message_type" jdbcType="VARCHAR" property="messageType"/>    <!-- 报文类型 -->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 海关代码 -->
+        <result column="discharge_place" jdbcType="VARCHAR" property="dischargePlace"/>    <!-- 卸货地代码 -->
+        <result column="arrive_time" jdbcType="BIGINT" property="arriveTime"/>    <!-- 运抵时间 -->
+        <result column="audit_status" jdbcType="VARCHAR" property="auditStatus"/>    <!-- 审核状态 -->
+        <result column="audit_time" jdbcType="BIGINT" property="auditTime"/>    <!-- 申报时间 -->
+        <result column="message_mode" jdbcType="VARCHAR" property="messageMode"/>    <!-- 生成方式(01手动输入02发运计划生成) -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, message_id, message_type, customs_code, discharge_place, arrive_time, audit_status, audit_time, message_mode, create_time
+	</sql>
+</mapper>

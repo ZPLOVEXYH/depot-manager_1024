@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BDepartureConfirmMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BDepartureConfirm">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!-- 箱号 -->
+        <result column="conta_type" jdbcType="VARCHAR" property="contaType"/>    <!-- 箱型 -->
+        <result column="departure_time" jdbcType="BIGINT" property="departureTime"/>    <!-- 发车时间 -->
+        <result column="ship_name" jdbcType="VARCHAR" property="shipName"/>    <!-- 运输工具名称 -->
+        <result column="voyage_no" jdbcType="VARCHAR" property="voyageNo"/>    <!-- 车次 -->
+        <result column="status" jdbcType="VARCHAR" property="status"/>    <!-- 状态 -->
+        <result column="op_user" jdbcType="VARCHAR" property="opUser"/>    <!-- 操作人 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, conta_no, conta_type, departure_time, ship_name, voyage_no, status, op_user, create_time
+	</sql>
+</mapper>

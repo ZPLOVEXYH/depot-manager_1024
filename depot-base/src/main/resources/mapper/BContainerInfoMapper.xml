@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BContainerInfoMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BContainerInfo">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!-- 箱号 -->
+        <result column="conta_type" jdbcType="VARCHAR" property="contaType"/>    <!-- 箱型 -->
+        <result column="seal_no" jdbcType="VARCHAR" property="sealNo"/>    <!-- 铅封号 -->
+        <result column="station_code" jdbcType="VARCHAR" property="stationCode"/>    <!-- 场站编码 -->
+        <result column="station_name" jdbcType="VARCHAR" property="stationName"/>    <!-- 场站名称 -->
+        <result column="in_time" jdbcType="BIGINT" property="inTime"/>    <!-- 进场时间 -->
+        <result column="out_time" jdbcType="BIGINT" property="outTime"/>    <!-- 出场时间 -->
+        <result column="status" jdbcType="VARCHAR" property="status"/>    <!-- 箱状态 -->
+        <result column="arrive_rel" jdbcType="VARCHAR" property="arriveRel"/>    <!-- 运抵放行 -->
+        <result column="tally_rel" jdbcType="VARCHAR" property="tallyRel"/>    <!-- 理货放行 -->
+        <result column="load_rel" jdbcType="VARCHAR" property="loadRel"/>    <!-- 装车记录放行 -->
+        <result column="ship_company" jdbcType="VARCHAR" property="shipCompany"/>    <!-- 发货企业 -->
+        <result column="delivery_company" jdbcType="VARCHAR" property="deliveryCompany"/>    <!-- 提货企业 -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="iEFlag"/>    <!-- 进出口标记 -->
+        <result column="update_time" jdbcType="BIGINT" property="updateTime"/>    <!-- 更新时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, conta_no, conta_type, seal_no, station_code, station_name, in_time, out_time, status, arrive_rel, tally_rel, load_rel, ship_company, delivery_company, i_e_flag, update_time, create_time
+	</sql>
+</mapper>

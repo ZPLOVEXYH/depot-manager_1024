@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.CStationsMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.CStations">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="code" jdbcType="VARCHAR" property="code"/>    <!-- 场站编码 -->
+        <result column="name" jdbcType="VARCHAR" property="name"/>    <!-- 场站名称 -->
+        <result column="station_type_code" jdbcType="VARCHAR" property="stationTypeCode"/>    <!-- 场站类型 -->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 主管海关代码 -->
+        <result column="customs_name" jdbcType="VARCHAR" property="customsName"/>    <!-- 主管海关名称 -->
+        <result column="operator_code" jdbcType="VARCHAR" property="operatorCode"/>    <!-- 经营人代码 -->
+        <result column="operator_name" jdbcType="VARCHAR" property="operatorName"/>    <!-- 经营人名称 -->
+        <result column="contact" jdbcType="VARCHAR" property="contact"/>    <!-- 联系人 -->
+        <result column="contact_phone" jdbcType="VARCHAR" property="contactPhone"/>    <!-- 联系方式 -->
+        <result column="address" jdbcType="VARCHAR" property="address"/>    <!-- 场站地址 -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, code, name, station_type_code, customs_code, customs_name, operator_code, operator_name, contact, contact_phone, address, enable, create_time
+	</sql>
+</mapper>

@@ -1,0 +1,22 @@
+2019-10-21 10:45:09.619 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 10:45:19.107 [main] WARN  org.apache.catalina.loader.WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [lettuce-eventExecutorLoop-1-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:467)
+ io.netty.util.concurrent.SingleThreadEventExecutor.takeTask(SingleThreadEventExecutor.java:252)
+ io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:64)
+ io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:906)
+ io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+ io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+ java.lang.Thread.run(Thread.java:748)
+2019-10-21 10:49:13.455 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 11:10:57.840 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 13:25:27.578 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 13:40:08.700 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 13:43:20.785 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 15:53:54.534 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 16:57:38.176 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-21 17:44:58.413 [AMQP Connection 192.168.237.129:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occured (Exception message: Connection reset)
+2019-10-22 10:10:20.154 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.
+2019-10-22 18:45:22.453 [main] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[cn.samples.deport.web.mapper]' package. Please check your configuration.

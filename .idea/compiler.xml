@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="depot-base" />
+        <module name="depot-common" />
+        <module name="depot-web" />
+        <module name="depot-web-cz" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="depot-base" target="1.8" />
+      <module name="depot-common" target="1.8" />
+      <module name="depot-manager" target="1.8" />
+      <module name="depot-web" target="1.8" />
+      <module name="depot-web-cz" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

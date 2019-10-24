@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRailwayLoadListMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRailwayLoadList">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="railway_load_report_head_id" jdbcType="VARCHAR"
+                property="railwayLoadReportHeadId"/>    <!-- 表头ID -->
+        <result column="railway_load_report_conta_id" jdbcType="VARCHAR"
+                property="railwayLoadReportContaId"/>    <!-- 集装箱表ID -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!-- 集装箱号 -->
+        <result column="arrive_no" jdbcType="VARCHAR" property="arriveNo"/>    <!-- 运抵编号 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, railway_load_report_head_id, railway_load_report_conta_id, conta_no, arrive_no, create_time
+	</sql>
+</mapper>

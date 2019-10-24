@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BRailwayTallyDelReportHeadMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BRailwayTallyDelReportHead">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 主键 -->
+        <result column="message_id" jdbcType="VARCHAR" property="messageId"/>    <!-- 报文编码 -->
+        <result column="message_id_add" jdbcType="VARCHAR" property="messageIdAdd"/>    <!--  -->
+        <result column="message_type" jdbcType="VARCHAR" property="messageType"/>    <!-- 报文类型 -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="iEFlag"/>    <!-- 进出口标记 -->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 海关代码 -->
+        <result column="unloading_place" jdbcType="VARCHAR" property="unloadingPlace"/>    <!-- 卸货地代码 -->
+        <result column="loading_place" jdbcType="VARCHAR" property="loadingPlace"/>    <!-- 装货地代码 -->
+        <result column="actual_datetime" jdbcType="BIGINT" property="actualDatetime"/>    <!-- 装卸开始时间 -->
+        <result column="completed_datetime" jdbcType="BIGINT" property="completedDatetime"/>    <!-- 装卸结束时间 -->
+        <result column="audit_status" jdbcType="VARCHAR"
+                property="auditStatus"/>    <!-- 作废审核状态(01 待申报 02 申报海关 05作废审核通过 06作废审核不通过)) -->
+        <result column="audit_time" jdbcType="BIGINT" property="auditTime"/>    <!-- 申报时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <!-- 理货报告多表分页返回字段 -->
+    <resultMap id="pageResultMap" type="cn.samples.depot.web.bean.report.RspBRailwayTallyDelReport">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 主键 -->
+        <result column="message_id" jdbcType="VARCHAR" property="messageId"/>    <!-- 报文编码 -->
+        <result column="message_type" jdbcType="VARCHAR" property="messageType"/>    <!-- 报文类型 -->
+        <result column="i_e_flag" jdbcType="VARCHAR" property="iEFlag"/>    <!-- 进出口标记（I 进口,E 出口） -->
+        <result column="customs_code" jdbcType="VARCHAR" property="customsCode"/>    <!-- 海关代码 -->
+        <result column="unloading_place" jdbcType="VARCHAR" property="unloadingPlace"/>    <!-- 卸货地代码 -->
+        <result column="loading_place" jdbcType="VARCHAR" property="loadingPlace"/>    <!-- 装货地代码 -->
+        <result column="actual_datetime" jdbcType="BIGINT" property="actualDatetime"/>    <!-- 装卸开始时间 -->
+        <result column="completed_datetime" jdbcType="BIGINT" property="completedDatetime"/>    <!-- 装卸结束时间 -->
+        <result column="audit_status" jdbcType="VARCHAR"
+                property="auditStatus"/>    <!-- 审核状态(01 待申报 02 申报海关 03 审核通过 04 审核不通过) -->
+        <result column="audit_time" jdbcType="BIGINT" property="auditTime"/>    <!-- 申报时间 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+        <result column="message_id_add" jdbcType="VARCHAR" property="messageIdAdd"/>    <!-- messageIdAdd -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, message_id, message_id_add, message_type, i_e_flag, customs_code, unloading_place, loading_place, actual_datetime, completed_datetime, audit_status, audit_time, create_time
+	</sql>
+
+    <sql id="Page_Column_List">
+		u.id, u.message_id, u.message_type, u.i_e_flag, u.customs_code, u.unloading_place, u.loading_place,
+		u.actual_datetime, u.completed_datetime, u.audit_status, u.audit_time, u.create_time, u.message_id_add
+	</sql>
+
+    <!-- 理货报告进出口列表多表关联分页查询 -->
+    <select id="selectDelReportListPage" resultMap="pageResultMap">
+        SELECT distinct
+        <include refid="Page_Column_List"/>
+        FROM
+        b_railway_tally_del_report_head u
+        LEFT JOIN b_railway_tally_del_bill_info r
+        ON u.id = r.railway_tally_report_head_id
+        <where>
+            <!-- 进出口 -->
+            <if test="query.iEFlag != null">
+                and u.i_e_flag = #{query.iEFlag}
+            </if>
+            <!-- 申报端口状态 -->
+            <if test="query.auditStatus != null">
+                and u.audit_status = #{query.auditStatus}
+            </if>
+            <!-- 海关 -->
+            <if test="query.customsCode != null">
+                and u.customs_code = #{query.customsCode}
+            </if>
+            <!-- 装货地代码 -->
+            <if test="query.loadingPlace != null">
+                and u.loading_place = #{query.loadingPlace}
+            </if>
+            <!-- 卸货地代码 -->
+            <if test="query.unloadingPlace != null">
+                and u.unloading_place = #{query.unloadingPlace}
+            </if>
+            <!-- TODO sqlserver 集装箱号 -->
+            <if test="query.contaNo != null">
+                and u.conta_no like ${query.contaNo}
+            </if>
+            <!-- 提单号 -->
+            <if test="query.billNo != null">
+                and r.bill_no like ${query.billNo}
+            </if>
+            <!-- 车皮号 -->
+            <if test="query.carriageNo != null">
+                and r.carriage_no like ${query.carriageNo}
+            </if>
+            <!-- 入库开始时间不为空，但是入库结束时间为空 -->
+            <if test="query.startCreateTime != null">
+                and u.create_time &gt;= #{startCreateTime}
+            </if>
+            <!-- 入库结束时间不为空，但是入库开始时间为空 -->
+            <if test="query.endCreateTime != null">
+                and u.create_time &lt;= #{endCreateTime}
+            </if>
+            <!-- 入库开始时间和入库结束时间都不能为空 -->
+            <!--<if test="query.startCreateTime != null and query.endCreateTime != null">
+                and (u.create_time between #{startCreateTime} and #{endCreateTime})
+            </if>-->
+        </where>
+        order by u.create_time desc
+    </select>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.CStationAreaPositionsMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.CStationAreaPositions">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="code" jdbcType="VARCHAR" property="code"/>    <!-- 堆位编码 -->
+        <result column="name" jdbcType="VARCHAR" property="name"/>    <!-- 堆位编码 -->
+        <result column="station_area_code" jdbcType="VARCHAR" property="stationAreaCode"/>    <!-- 所属场区 -->
+        <result column="row_no" jdbcType="VARCHAR" property="row"/>    <!-- 贝 -->
+        <result column="column_no" jdbcType="VARCHAR" property="column"/>    <!-- 列 -->
+        <result column="layer_no" jdbcType="VARCHAR" property="layer"/>    <!-- 行 -->
+        <result column="used" jdbcType="INTEGER" property="used"/>    <!-- 占用状态(0未占用 1预占用 2已占用) -->
+        <result column="preused_times" jdbcType="INTEGER" property="preusedTimes"/>    <!--  -->
+        <result column="conta_no" jdbcType="VARCHAR" property="contaNo"/>    <!--  -->
+        <result column="conta_type" jdbcType="VARCHAR" property="contaType"/>    <!--  -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>    <!-- 备注 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, code, name, station_area_code, row_no,column_no,layer_no,used, preused_times, conta_no, conta_type, enable, remark, create_time
+	</sql>
+</mapper>

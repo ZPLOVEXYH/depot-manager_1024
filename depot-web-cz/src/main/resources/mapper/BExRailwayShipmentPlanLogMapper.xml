@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.cz.mapper.BExRailwayShipmentPlanLogMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BExRailwayShipmentPlanLog">
+        <result column="shipment_plan_no" jdbcType="VARCHAR" property="shipmentPlanNo"/>    <!-- 发运计划编号 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		shipment_plan_no
+	</sql>
+</mapper>

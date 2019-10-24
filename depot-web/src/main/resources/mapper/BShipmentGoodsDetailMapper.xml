@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.BShipmentGoodsDetailMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.BShipmentGoodsDetail">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!-- 商品明细id -->
+        <result column="container_id" jdbcType="VARCHAR" property="containerId"/>    <!-- 集装箱id -->
+        <result column="shipment_plan_id" jdbcType="VARCHAR" property="shipmentPlanId"/>    <!-- 发运计划id -->
+        <result column="container_no" jdbcType="VARCHAR" property="containerNo"/>    <!-- 集装箱号 -->
+        <result column="goods_name" jdbcType="VARCHAR" property="goodsName"/>    <!-- 商品品名 -->
+        <result column="piece_num" jdbcType="INTEGER" property="pieceNum"/>    <!-- 件数 -->
+        <result column="weight" jdbcType="DECIMAL" property="weight"/>    <!-- 重量（KG) -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>    <!-- 备注 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, shipment_id, shipment_plan_id, shipment_no, goods_name, piece_num, weight, create_time, remark
+	</sql>
+</mapper>

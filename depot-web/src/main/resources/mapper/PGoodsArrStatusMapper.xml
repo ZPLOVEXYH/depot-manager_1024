@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.PGoodsArrStatusMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.PGoodsArrStatus">
+        <result column="code" jdbcType="VARCHAR" property="code"/>    <!-- 类型值 -->
+        <result column="name" jdbcType="VARCHAR" property="name"/>    <!-- 类型名称 -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="create_time" jdbcType="INTEGER" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		code, name, enable, create_time
+	</sql>
+</mapper>

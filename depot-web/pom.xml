@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.samples.depot</groupId>
+        <artifactId>depot-manager</artifactId>
+        <version>0.0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>cn.samples.depot</groupId>
+    <artifactId>depot-web</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>depot-web(接口WEB模块-企业端)</name>
+    <description>depot-web project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <pagehelper.version>1.2.3</pagehelper.version>
+    </properties>
+
+    <dependencies>
+        <!--spring test-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- mybatis的orm插件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--mysql链接依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!--阿里druid数据库链接依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.9</version>
+        </dependency>
+        <!-- logstash -->
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>4.11</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.samples.depot</groupId>
+            <artifactId>depot-base</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <!--MyBatis分页插件-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId> <!-- 拷贝插件 -->
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <tasks>
+                                <echo message="start.................................."/>
+                                <copy todir="${project.basedir}/docker"> <!--  文件将要输出目录 在parent pom中统一配置，此处引用即可-->
+                                    <fileset dir="${project.build.directory}"> <!-- 待拷贝文件的目录，默认目录在项目的target下-->
+                                        <include
+                                                name="${project.artifactId}-${project.version}.jar"/> <!-- 待拷贝文件，可以使用下面的通配符，还可以是其他目录的文件。此处需要与project.bulid.finalName对应，否则可能找不到文件 -->
+                                    </fileset>
+                                </copy>
+                                <echo message="end.................................."/>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

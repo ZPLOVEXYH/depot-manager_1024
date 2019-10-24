@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.samples.depot.web.mapper.CMenusMapper">
+    <resultMap id="BaseResultMap" type="cn.samples.depot.web.entity.CMenus">
+        <id column="id" jdbcType="VARCHAR" property="id"/>        <!--  -->
+        <result column="code" jdbcType="VARCHAR" property="code"/>    <!-- 菜单编码 -->
+        <result column="name" jdbcType="VARCHAR" property="name"/>    <!-- 菜单名称 -->
+        <result column="parent_code" jdbcType="VARCHAR" property="parentCode"/>    <!-- 父级菜单编码 -->
+        <result column="level" jdbcType="INTEGER" property="level"/>    <!-- 菜单级别 -->
+        <result column="sort" jdbcType="INTEGER" property="sort"/>    <!-- 排序号 -->
+        <result column="url" jdbcType="VARCHAR" property="url"/>    <!-- 菜单地址 -->
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>    <!-- 菜单图标 -->
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>    <!-- 菜单描述 -->
+        <result column="enable" jdbcType="INTEGER" property="enable"/>    <!-- 是否启用 -->
+        <result column="create_time" jdbcType="BIGINT" property="createTime"/>    <!-- 创建时间 -->
+    </resultMap>
+
+    <sql id="Base_Column_List">
+		id, code, name, parent_code, level, sort, url, icon, remark, enable, create_time
+	</sql>
+</mapper>
