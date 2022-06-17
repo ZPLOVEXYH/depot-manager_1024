@@ -25,7 +25,7 @@
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <swagger.version>2.9.2</swagger.version>
         <swagger_model.version>1.5.21</swagger_model.version>
-        <fastjson.version>1.2.44</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <commons.version>3.5</commons.version>
         <lombok.version>1.16.20</lombok.version>
         <hutool.version>4.1.19</hutool.version>
